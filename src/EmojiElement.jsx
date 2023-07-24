@@ -24,24 +24,26 @@ const EmojiElement = ({ name, htmlCode, unicode, group, category }) => {
     <Card
       onClick={onOpen}
       variant={"elevated"}
-      w="200px"
+      overflowWrap={"break-word"}
+      w={{ sm: "100px", lg: "200px" }}
       color="black.400"
       borderRadius="xl"
       overflow="hidden"
       p="4"
       flexWrap={"wrap"}
-      m={"10"}
+      m={{ base: "3", lg: "10" }}
       textAlign="center"
       cursor="pointer"
       background={"whiteAlpha.300"}
-      _hover={{ bg: "whiteAlpha.400" }}
+      _hover={{ bg: "whiteAlpha.400", shadow: "lg" }}
+      _active={{ bg: "whiteAlpha.400", shadow: "lg" }}
       // onDoubleClick={onCopy}
     >
       <CardHeader fontSize={"xl"}>
         <span dangerouslySetInnerHTML={{ __html: htmlCode }} />
       </CardHeader>
       <Text fontSize="sm" fontWeight="bold">
-        {name}
+        {name.split(/≊|,/)[0].trim()}
       </Text>
       {/* <Text>{category}</Text> */}
 
