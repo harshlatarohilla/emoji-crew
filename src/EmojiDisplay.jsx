@@ -97,13 +97,13 @@ const EmojiDisplay = () => {
       <Flex
         flexDirection={{ base: "column", md: "row" }}
         // wrap="wrap"
-        width={"100%"}
+        width={"80%"}
         justifyContent={{base:"space-around", md:"space-between"}}
         // padding={"8px"}
         px={{ base: "10px", md: "20px" }}
         // ml={"20px"}
-        // mr={"20px"}
-        // m={{base:"20"}}
+        mr={"25px"}
+        m={{base:"auto"}}
         // pr={"50px"}
         // background={"red"}
       >
@@ -111,13 +111,13 @@ const EmojiDisplay = () => {
           // display={"block"}
           size={{base:"md", md:"lg"}}
           minW={{ base: "200px", md:"300px", lg: "400px" }}
-          width={{ base: "400px", md:"300px", lg: "300px" }}
+          width={{ base: "250px", md:"300px", lg: "300px" }}
           borderRadius={"40px"}
           value={selectedCategory}
           ml={{base:"2", md:"0"}}
           onChange={handleCategoryChange}
           background={"whiteAlpha.400"}
-          mb={{ base: "10px", md: "0" }}
+          mb={{ base: "10px", md: "1" }}
         >
           <option value="All">All Category</option>
 
@@ -128,7 +128,6 @@ const EmojiDisplay = () => {
           ))}
         </Select>
         <Input
-          ml={{base:"2", md:"0"}}
           background={"whiteAlpha.400"}
           placeholder="Search emojis..."
           value={searchKeyword}
@@ -136,12 +135,13 @@ const EmojiDisplay = () => {
           size={{base:"md", md:"lg"}}
           minW={{ base: "200px", md: "300px", lg:"400px", }}
           borderRadius={"40px"}
-          w={{ base: "400px", md: "300px", lg:"400px" }}
+          w={{ base: "250px", md: "300px", lg:"400px" }}
+          ml={{base:"2", md:"0"}}
           mr="5"
           // mb={""}
         />
       </Flex>
-      <Flex wrap="wrap">
+      <Flex wrap="wrap" mb={"80px"} mx={"auto"}>
         {currentEmojis.length === 0 ? (
           <Flex
             height="80vh"
