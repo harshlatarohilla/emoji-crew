@@ -90,33 +90,26 @@ const EmojiDisplay = () => {
     <Flex
       background={"lightblue"}
       flexDirection={"column"}
-      // wrap="wrap"
-      // justifyContent={"center"}
       padding={"10px"}
     >
       <Flex
         flexDirection={{ base: "column", md: "row" }}
-        // wrap="wrap"
-        width={"80%"}
-        justifyContent={{base:"space-around", md:"space-between"}}
-        // padding={"8px"}
-        px={{ base: "10px", md: "20px" }}
-        // ml={"20px"}
-        mr={"25px"}
-        m={{base:"auto"}}
-        // pr={"50px"}
+        width={"98%"}
+        justifyContent="space-between"
+        py={"8px"}
+        px={{ base: "10px", md: "30px" }}
+        m={{base:"auto", md:"0"}}
         // background={"red"}
       >
         <Select
-          // display={"block"}
           size={{base:"md", md:"lg"}}
           minW={{ base: "200px", md:"300px", lg: "400px" }}
           width={{ base: "250px", md:"300px", lg: "300px" }}
           borderRadius={"40px"}
           value={selectedCategory}
-          ml={{base:"2", md:"0"}}
           onChange={handleCategoryChange}
           background={"whiteAlpha.400"}
+          ml={{base:"10", md:"0"}}
           mb={{ base: "10px", md: "1" }}
         >
           <option value="All">All Category</option>
@@ -136,9 +129,7 @@ const EmojiDisplay = () => {
           minW={{ base: "200px", md: "300px", lg:"400px", }}
           borderRadius={"40px"}
           w={{ base: "250px", md: "300px", lg:"400px" }}
-          ml={{base:"2", md:"0"}}
-          mr="5"
-          // mb={""}
+          ml={{base:"10", md:"0"}}
         />
       </Flex>
       <Flex wrap="wrap" mb={"80px"} mx={"auto"}>
@@ -168,7 +159,6 @@ const EmojiDisplay = () => {
       {searchedEmojis.length > emojisPerPage && (
         <Flex
           justifyContent="center"
-          // marginY={"20"}
           marginX={"0"}
           p={"5"}
           position="fixed"

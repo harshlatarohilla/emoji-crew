@@ -57,7 +57,6 @@ const EmojiElement = ({ name, htmlCode, unicode, group, category }) => {
           py={"4"}
           borderRadius="50px"
           background={"lightblue"}
-          // color={"gray"}
         >
           <ModalHeader overflow={"hidden"} fontSize="80px" p={"20px"}>
             <Center>
@@ -65,11 +64,11 @@ const EmojiElement = ({ name, htmlCode, unicode, group, category }) => {
                 style={{
                   background: "#C2DEDC",
                   borderRadius: "90px",
-                  margin: "5px",
-                  padding: "12px 15px",
+                  margin: "2px",
+                  padding: "5% 8%",
                 }}
                 dangerouslySetInnerHTML={{ __html: htmlCode }}
-              />{" "}
+              />
             </Center>
           </ModalHeader>
           <ModalCloseButton m={"3"} />
@@ -87,11 +86,7 @@ const EmojiElement = ({ name, htmlCode, unicode, group, category }) => {
             <Text role="img" cursor={"pointer"} onClick={onHTMLCopy}>
               <strong>HTML Code: </strong>
               <span
-              // style={{
-              //   color: "brown",
-              //   display: "flex",
-              //   alignItems: "center",
-              // }}
+              
               >
                 {htmlCode}
                 <HiOutlineClipboardCopy
