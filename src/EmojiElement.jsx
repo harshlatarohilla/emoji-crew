@@ -25,13 +25,13 @@ const EmojiElement = ({ name, htmlCode, unicode, group, category }) => {
       onClick={onOpen}
       variant={"elevated"}
       overflowWrap={"break-word"}
-      w={{ sm: "100px", lg: "200px" }}
+      w={"200px"}
       color="black.400"
       borderRadius="xl"
       overflow="hidden"
-      p="4"
+      p="2"
       flexWrap={"wrap"}
-      m={{ base: "3", lg: "10" }}
+      m={{ base: "3", lg: "6" }}
       textAlign="center"
       cursor="pointer"
       background={"whiteAlpha.300"}
@@ -39,8 +39,11 @@ const EmojiElement = ({ name, htmlCode, unicode, group, category }) => {
       _active={{ bg: "whiteAlpha.400", shadow: "lg" }}
       // onDoubleClick={onCopy}
     >
-      <CardHeader fontSize={"xl"}>
-        <span dangerouslySetInnerHTML={{ __html: htmlCode }} />
+      <CardHeader fontSize={"lg"}>
+        <span
+          style={{ fontSize: "60px" }}
+          dangerouslySetInnerHTML={{ __html: htmlCode }}
+        />
       </CardHeader>
       <Text fontSize="sm" fontWeight="bold">
         {name.split(/≊|,/)[0].trim()}
@@ -49,15 +52,27 @@ const EmojiElement = ({ name, htmlCode, unicode, group, category }) => {
 
       <Modal isOpen={isOpen} onClose={onClose} size={"xs"} isCentered="true">
         <ModalOverlay />
-        <ModalContent background={"blue.100"} color={"blackAlpha"}>
-          <ModalHeader fontSize="80px" margin={"20px"}>
+        <ModalContent
+          py={"4"}
+          borderRadius="50px"
+          background={"lightblue"}
+          // color={"gray"}
+        >
+          <ModalHeader overflow={"hidden"} fontSize="80px" p={"20px"}>
             <Center>
-              {" "}
-              <span dangerouslySetInnerHTML={{ __html: htmlCode }} />{" "}
+              <span
+                style={{
+                  background: "#C2DEDC",
+                  borderRadius: "90px",
+                  margin: "5px",
+                  padding: "12px 15px",
+                }}
+                dangerouslySetInnerHTML={{ __html: htmlCode }}
+              />{" "}
             </Center>
           </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody padding={"20px"}>
+          <ModalCloseButton m={"3"} />
+          <ModalBody textAlign={"center"} paddingLeft={"40px"}>
             <Text>
               <strong>Name:</strong> {name}
             </Text>
@@ -66,26 +81,30 @@ const EmojiElement = ({ name, htmlCode, unicode, group, category }) => {
             </Text>
             <Text>
               {" "}
-              <strong>Group</strong>: {group}
+              <strong>Group: </strong> {group}
             </Text>
             <Text role="img" cursor={"pointer"} onClick={onHTMLCopy}>
-              <strong>HTML Code:</strong>
+              <strong>HTML Code: </strong>
               <span
-                style={{
-                  color: "blackAlpha.600",
-                  display: "flex",
-                  alignItems: "center",
-                }}
+              // style={{
+              //   color: "brown",
+              //   display: "flex",
+              //   alignItems: "center",
+              // }}
               >
                 {htmlCode}
-                <HiOutlineClipboardCopy style={{ marginLeft: "5px" }} />
+                <HiOutlineClipboardCopy
+                  style={{ display: "inline", marginLeft: "5px" }}
+                />
               </span>
             </Text>
             <Text cursor={"pointer"} onClick={onUniCopy}>
-              <strong>UNICODE : </strong>
-              <span style={{ display: "flex", alignItems: "center" }}>
+              <strong>UNICODE: </strong>
+              <span>
                 {unicode}{" "}
-                <HiOutlineClipboardCopy style={{ marginLeft: "5px" }} />
+                <HiOutlineClipboardCopy
+                  style={{ display: "inline", marginLeft: "5px" }}
+                />
               </span>
             </Text>
           </ModalBody>
@@ -96,8 +115,3 @@ const EmojiElement = ({ name, htmlCode, unicode, group, category }) => {
 };
 
 export default EmojiElement;
-
-// &#128517;
-// Unicode: \uU+1F605
-// &#128513;
-// Unicode: U+1F601

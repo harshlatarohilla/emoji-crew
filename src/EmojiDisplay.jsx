@@ -42,7 +42,7 @@ const EmojiDisplay = () => {
     indexOfLastEmoji
   );
 
-  const maxPaginationButtons = 10;
+  const maxPaginationButtons = 5;
   const totalPages = Math.ceil(searchedEmojis.length / emojisPerPage);
   let startPage = Math.max(
     currentPage - Math.floor(maxPaginationButtons / 2),
@@ -92,24 +92,32 @@ const EmojiDisplay = () => {
       flexDirection={"column"}
       // wrap="wrap"
       // justifyContent={"center"}
-      padding={"20px"}
+      padding={"10px"}
     >
       <Flex
-        flexDirection={"row"}
-        wrap="wrap"
+        flexDirection={{ base: "column", md: "row" }}
+        // wrap="wrap"
         width={"100%"}
-        justifyContent={"space-around"}
-        padding={"20px"}
+        justifyContent={{base:"space-around", md:"space-between"}}
+        // padding={"8px"}
+        px={{ base: "10px", md: "20px" }}
+        // ml={"20px"}
+        // mr={"20px"}
+        // m={{base:"20"}}
+        // pr={"50px"}
+        // background={"red"}
       >
         <Select
-          display={"block"}
-          size={"md"}
-          minW={"100px"}
-          width={"20%"}
+          // display={"block"}
+          size={{base:"md", md:"lg"}}
+          minW={{ base: "200px", md:"300px", lg: "400px" }}
+          width={{ base: "400px", md:"300px", lg: "300px" }}
           borderRadius={"40px"}
           value={selectedCategory}
+          ml={{base:"2", md:"0"}}
           onChange={handleCategoryChange}
           background={"whiteAlpha.400"}
+          mb={{ base: "10px", md: "0" }}
         >
           <option value="All">All Category</option>
 
@@ -120,15 +128,17 @@ const EmojiDisplay = () => {
           ))}
         </Select>
         <Input
+          ml={{base:"2", md:"0"}}
           background={"whiteAlpha.400"}
           placeholder="Search emojis..."
           value={searchKeyword}
           onChange={handleSearchChange}
-          size="md"
+          size={{base:"md", md:"lg"}}
+          minW={{ base: "200px", md: "300px", lg:"400px", }}
           borderRadius={"40px"}
-          w={"40%"}
-          ml="2"
-          mb={"8"}
+          w={{ base: "400px", md: "300px", lg:"400px" }}
+          mr="5"
+          // mb={""}
         />
       </Flex>
       <Flex wrap="wrap">
@@ -153,50 +163,54 @@ const EmojiDisplay = () => {
             />
           ))
         )}
-
-        {searchedEmojis.length > emojisPerPage && (
-          <Flex
-            justifyContent="center"
-            position="fixed"
-            bottom="10"
-            left="0"
-            right="0"
-          >
-            <Button
-              mx="1"
-              size="sm"
-              colorScheme="teal"
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              &lt; Prev
-            </Button>
-            {Array.from({ length: endPage - startPage + 1 }).map((_, index) => (
-              <Button
-                key={startPage + index}
-                mx="1"
-                size="sm"
-                color={"black"}
-                colorScheme={
-                  startPage + index === currentPage ? "teal" : "whiteAlpha"
-                }
-                onClick={() => handlePageChange(startPage + index)}
-              >
-                {startPage + index}
-              </Button>
-            ))}
-            <Button
-              mx="1"
-              size="sm"
-              colorScheme="teal"
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              Next &gt;
-            </Button>
-          </Flex>
-        )}
       </Flex>
+
+      {searchedEmojis.length > emojisPerPage && (
+        <Flex
+          justifyContent="center"
+          // marginY={"20"}
+          marginX={"0"}
+          p={"5"}
+          position="fixed"
+          bottom="0"
+          left="0"
+          background="lightblue"
+          right="0"
+        >
+          <Button
+            mx="1"
+            size="sm"
+            colorScheme="teal"
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            &lt; Prev
+          </Button>
+          {Array.from({ length: endPage - startPage + 1 }).map((_, index) => (
+            <Button
+              key={startPage + index}
+              mx="1"
+              size="sm"
+              color={"black"}
+              colorScheme={
+                startPage + index === currentPage ? "teal" : "whiteAlpha"
+              }
+              onClick={() => handlePageChange(startPage + index)}
+            >
+              {startPage + index}
+            </Button>
+          ))}
+          <Button
+            mx="1"
+            size="sm"
+            colorScheme="teal"
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next &gt;
+          </Button>
+        </Flex>
+      )}
     </Flex>
   );
 };
