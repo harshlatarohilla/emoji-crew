@@ -1,13 +1,14 @@
-# Emoji Browser
+# Emoji Crew
 
-Emoji Browser is a React web application that allows users to conveniently list and browse emojis. It fetches emoji data from a web API and displays the emojis in a paginated list. Users can filter emojis by category and search for emojis based on keywords. The application uses Chakra UI for designing the emoji cards and provides a copy-to-clipboard functionality for the HTML code of each emoji.
+Emoji Crew is a React web application that allows users to conveniently list and browse emojis. It fetches emoji data from a web API and displays the emojis in a paginated list. Users can filter emojis by category and search for emojis based on keywords. The application uses Chakra UI for designing the emoji cards and provides a copy-to-clipboard functionality for the HTML code and Unicode of each emoji.
 
 ## Features
 
 - Fetches emoji data from a web API and displays emojis in a paginated list.
 - Allows users to filter emojis by category using a dropdown select.
 - Enables users to search for emojis based on keywords using a search bar.
-- Provides emoji cards with information like name, category, and HTML code.
+- displays emoji cards neatly with emoticon and their brief names
+- Provides with detailed information emoji cards when brief emoji cards are clicked like name, category, group, and HTML code.
 - Allows users to copy the HTML code of each emoji to the clipboard by clicking on it.
 - Implements pagination for displaying 10 emojis per page and provides navigation buttons.
 
@@ -16,13 +17,13 @@ Emoji Browser is a React web application that allows users to conveniently list 
 1. Clone the repository to your local machine:
 
 ```
-git clone https://github.com/your-username/emoji-browser.git
+git clone https://github.com/harshlatarohilla/emoji-crew.git
 ```
 
 2. Navigate to the project directory:
 
 ```
-cd emoji-browser
+cd emoji-crew
 ```
 
 3. Install the dependencies using npm or yarn:
